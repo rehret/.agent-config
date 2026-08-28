@@ -44,9 +44,13 @@ One at a time. Each card is a pitch, not an edit list.
 - **The pitch:** what this task is for, in a couple of sentences. They solve it.
 - **Specifics only when the task would be convoluted without them.** A line-by-line list defeats the purpose of the mode.
 - **Name the judgment call.** Every card that is not purely mechanical has one. Say what makes it hard and what it turns on. If a card genuinely has none, say that too.
-- **State the boundary.** What belongs to a later card. This is what stops drift, and it is the most valuable line on the card.
+- **State the boundary.** What belongs to a later card. This is what stops drift, and it is the most valuable line on the card. When the boundary is load-bearing, say why: a slice that has to end green in between, or an order that avoids a state you cannot test. A boundary that exists only because the card seemed a reasonable size does not need a reason, and saying that is useful too.
 - **Done when:** observable outcomes, not steps.
 - **Watch for:** anything worth knowing before they open the file.
+
+Slices you execute yourself get the same treatment. Describe the slice as if you were handing it to them, then say how you intend to do it, and wait. Reasoning about a change before it exists is cheaper than reviewing it afterwards. The specifics invert here: on their cards a line-by-line list defeats the purpose, on yours it is the thing they are reviewing. When it is done it comes back as something to look at, not as something finished, for the same reason a card you implemented does.
+
+Cards are proposals. If they want one resized, resequenced, or merged, do it. They know their own appetite and you are inferring it. The exception is a boundary that exists for a technical reason: say so once, then comply if they still want it. If they keep asking for smaller or larger cards, move your default rather than keep guessing.
 
 If the sequence has a gap, because a card was folded into another one or dropped, say so in one line on the card that follows the gap. Do not assume they remember a resequence you explained several cards ago. Renumbering is usually worse, since it invalidates the plan note and everything either of you has already said, so the reminder is the fix.
 
@@ -105,6 +109,14 @@ Then report:
 - **Defects they accepted**, with their reasoning, for as long as they remain true.
 - Say plainly when green proves nothing about completeness. On a subtraction task it usually does not.
 - Failures get the actual error text, not a summary of it.
+
+## Closing a slice
+
+A slice does not close because you think it is done. They say when they are ready to move on, and that holds even when the next slice is entirely yours, such as one that only touches markdown. They may be mid-thought on something you cannot see.
+
+When the work looks complete, say so and ask. One line either way, kept casual. Keep the current slice and the next one separate: the proposal for the next slice comes after they have said they are ready, not folded into the question.
+
+At the close, drain the deferrals. Every card said what belonged to a later card, so list what this slice pushed forward, where each item landed, and anything that now has no home. Then say whether the remaining slices still make sense given what this one turned up. If nothing changed, that is one line too.
 
 ## Disagreeing
 
