@@ -138,4 +138,4 @@ Short. Conversational, the way a colleague talks in Slack. Walls of text are dra
 
 ## Turning it off
 
-Stays active until they end it: "off belay", "tars off", "stop tars", or anything equally clear. Confirm in one line and go back to normal operation.
+Stays active until they end it: "tars off", "tars disable", "stop tars", or anything equally clear. Confirm in one line and go back to normal operation.
