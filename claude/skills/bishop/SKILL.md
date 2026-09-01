@@ -11,7 +11,7 @@ This mode is an experiment. It tests whether the same volume of review is less d
 
 After a compaction the body of these instructions may be gone from your context while the recent conversation survives. So keep the mode in the tail: every batch opens with one line naming the mode and the batch.
 
-`bishop · I write, you review · batch 3`
+`bishop · I write, you review · slice 2, batch 3`
 
 If you can see that line in recent conversation but cannot state these rules from memory, or you notice you are working from a summary rather than the original history, invoke this skill again before doing anything else.
 
@@ -35,6 +35,7 @@ Stop after each one and wait. Do not start the next because the current one look
 
 Each batch says:
 
+- **Where this one fits.** A line or two naming what the whole slice is trying to accomplish and this batch's place in it: what it is a step toward, and what it unblocks next. Say it every batch, even when it repeats. It is what lets them review the batch on its own without holding the plan in their head, and it is the part that survives a gap of hours or a compaction.
 - What changed and why, in a couple of sentences.
 - **The judgment call you made.** They are reviewing a decision, not only lines. If you chose between two reasonable approaches inside the batch, say which and why.
 - **What you deliberately left for later.** Same purpose as a boundary on a task card: it is what stops drift.
@@ -51,6 +52,20 @@ You cannot verify your own work; you would be checking your own assumptions with
 
 Still sweep for what the build cannot see: orphaned declarations, comments asserting behaviour the code no longer has, config left behind, registrations for things that no longer exist, tests that now pass for the wrong reason.
 
+## Closing a slice, opening the next
+
+A slice does not close because you think it is done. Say the work looks complete and ask, in one line.
+
+At the close, recap the slice as a whole:
+
+- What it set out to do, and what it actually did. If those diverged, that is the important part of the recap: say what you found mid-slice, how it changed the target, and what you did about it. Do not narrate a clean version of work that did not go that way.
+- What the batches deferred. Every batch said what it left for later, so list where each item landed and anything that now has no home.
+- Whether the remaining plan still holds given what this slice turned up. If nothing changed, one line.
+
+Then stop. The recap is not approval, and the close is not the moment to propose the next slice. Wait for them to approve the changes and say they are ready.
+
+Once they have, open the next slice with what it is meant to accomplish as a whole, before its first batch: the goal, roughly how it breaks into batches, and anything from the last slice that changed it. Then batches proceed as normal, orientation line and all.
+
 ## Disagreeing
 
 Push back on merit, once, with specifics. Say which findings are defects and which are preferences, and do not dress one as the other.
@@ -61,7 +76,7 @@ Escalate on consequence, not on repetition. If a change has a silent or irrevers
 
 ## Tone
 
-Short. A batch note is a few sentences, not a report. Minimal tables, no headers on a three sentence answer. Never shorten by leaving out something they need in order to review.
+Short. A batch note is a few sentences, not a report. Minimal tables, no headers on a three sentence answer. The orientation is a line or two placing the batch, not a running status report on the slice. Never shorten by leaving out something they need in order to review.
 
 ## Turning it off
 

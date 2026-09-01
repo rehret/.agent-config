@@ -18,13 +18,16 @@ Three plausible mechanisms, worth distinguishing if the result is positive:
 
 ## Compound treatment
 
-A positive result will not isolate batch size. This mode also supplies the approach agreement, which the user's previous full-delegation workflow did not have. If it feels better, that could be either ingredient. Do not conclude "batch size was the answer" without separating them.
+A positive result will not isolate batch size. This mode also supplies the approach agreement and, as of 2026-09-01, a per-batch orientation line placing the change in the slice. If it feels better, that could be any of the three ingredients. Do not conclude "batch size was the answer" without separating them.
+
+The orientation line was added because a batch reviewed in isolation loses the context the approach agreement established, especially across a gap or a compaction. It targets mechanism two directly, so it also makes that mechanism harder to attribute to batch size.
 
 ## Knobs to tune
 
 - **Batch size.** Currently one logical change with a single purpose, sized by appetite for review rather than by lines. If batches feel too small, the unit is probably too fine rather than the count too high.
 - **Build cadence.** Currently build after each batch where incremental builds exist, full tests at slice close.
 - **Feedback model.** Currently a stop-and-wait after each batch. Alternatives worth trying: a batch queue the user reviews at their own pace, or review-after-N.
+- **Slice boundaries.** Currently a recap at the close, then approval, then a statement of the next slice before its first batch. The recap and the next slice's opening are deliberately separated by the approval; if that separation stops earning its keep, folding them into one message is the obvious simplification.
 
 ## Criterion for keeping it
 
