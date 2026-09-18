@@ -1,48 +1,56 @@
 ---
 name: obsidian-plan
-description: Conventions for the Obsidian plan note at $PLAN_NOTES/Projects/<TICKET>/Plan.md or $PLAN_NOTES/Projects/<Project>/Plan.md - path and ticket resolution, frontmatter, what counts as a step, and the altitude to write at. Invoke when creating or updating a plan note, when a plan is first approved (e.g. on exiting plan mode), or when a plan materially changes. Plan notes are off unless PLAN_NOTES names an existing vault directory.
+description: Conventions for the plan note at $OBSIDIAN_PLAN_VAULT/$OBSIDIAN_PLAN_DIR/<TICKET>/Plan.md or .../<Project>/Plan.md - path and ticket resolution, frontmatter, what counts as a step, and the altitude to write at. Invoke when creating or updating a plan note, when a plan is first approved (e.g. on exiting plan mode), or when a plan materially changes. Plan notes are off unless OBSIDIAN_PLAN_VAULT names an existing directory.
 ---
 
-# Obsidian plan note
+# Plan note
 
 Maintain a higher-level, self-sufficient plan note per effort. Create it when a plan is first
 approved.
 
 ## Per-machine gate
 
-Plan notes are opt-in per machine and OFF by default. The `PLAN_NOTES` environment variable holds
-the Obsidian vault root; a machine opts in by setting it in `~/.claude/settings.json`, which no repo
-tracks:
+Plan notes are opt-in per machine and OFF by default. Two environment variables configure them, set
+in `~/.claude/settings.json`, which no repo tracks:
 
 ```json
-{ "env": { "PLAN_NOTES": "/path/to/vault" } }
+{ "env": { "OBSIDIAN_PLAN_VAULT": "/path/to/vault", "OBSIDIAN_PLAN_DIR": "Projects" } }
 ```
 
-The `SessionStart` hook in `claude/plan-notes-policy.sh` reports the policy at session start, so
-normally you already know the answer. If you do not, check `PLAN_NOTES` before anything else and
-treat unset, empty, or not-an-existing-directory as OFF: skip silently and do not mention it. Never
-create the vault root yourself. Folders under `$PLAN_NOTES/Projects/` are yours to create; the vault
-root is not, because its absence is what signals that this machine does not keep notes.
+- `OBSIDIAN_PLAN_VAULT` is the Obsidian vault root, and setting it to an existing directory is what
+  opts the machine in.
+- `OBSIDIAN_PLAN_DIR` is optional: the folder the note folders live in, relative to the vault root.
+  It defaults to `Projects`, and `.` puts them at the vault root itself. It must stay inside the
+  vault, so never absolute and never climbing out with `..`.
+
+The `SessionStart` hook in `hooks/plan-notes-policy.sh` beside this file (or the `.ps1` twin on
+Windows) reports the policy at session start, so normally you already know the answer. If you do
+not, check both variables before anything else and treat an unset, empty, or not-an-existing
+`OBSIDIAN_PLAN_VAULT` as OFF: skip silently and do not mention it. Never create the vault yourself,
+because its absence is what signals that this machine does not keep notes. Everything under it,
+`$OBSIDIAN_PLAN_DIR` included, is yours to create.
 
 ## Path and scope
 
 A plan note covers one effort. Usually that is a single ticket; sometimes it is a project spanning
-several. The folder name says which, and the file is always `Plan.md`:
+several. The folder name says which, and the file is always `Plan.md`. Writing `$BASE` for
+`$OBSIDIAN_PLAN_VAULT/$OBSIDIAN_PLAN_DIR`:
 
-- Single ticket: `$PLAN_NOTES/Projects/<TICKET>/Plan.md` (e.g. `.../Projects/ABC-123/Plan.md`).
-- Multi-ticket project: `$PLAN_NOTES/Projects/<Project Name>/Plan.md`, with any per-ticket notes
-  nested beneath it at `$PLAN_NOTES/Projects/<Project Name>/<TICKET>/Plan.md`.
+- Single ticket: `$BASE/<TICKET>/Plan.md` (e.g. `.../Projects/ABC-123/Plan.md`).
+- Multi-ticket project: `$BASE/<Project Name>/Plan.md`, with any per-ticket notes nested beneath it
+  at `$BASE/<Project Name>/<TICKET>/Plan.md`.
 
 For a multi-ticket project the project plan is the default home, and a nested ticket note is the
 exception. Add one only when that ticket carries nuance worth tracking apart from the overall plan,
 and keep the two cross-linked: the project plan links down to each ticket note that exists, each
-ticket note links up to the project plan.
+ticket note links up to the project plan. Wikilinks resolve against the vault root, not `$BASE`, so
+write them relative to the vault (e.g. `[[Projects/Some Project/ABC-123/Plan]]`).
 
 Before creating any note, look for an existing one at either depth and update it in place rather
 than creating a second:
 
 ```bash
-find "$PLAN_NOTES/Projects" -type d -name '<TICKET>'
+find "$OBSIDIAN_PLAN_VAULT/${OBSIDIAN_PLAN_DIR:-Projects}" -type d -name '<TICKET>'
 ```
 
 ## Resolving ticket and scope
@@ -50,15 +58,16 @@ find "$PLAN_NOTES/Projects" -type d -name '<TICKET>'
 Determine the ticket number from the git branch name (e.g. `ABC-123`, `XYZ-456`).
 
 When the approved plan visibly spans more than one ticket, ask a single combined question covering:
-whether to save to Obsidian, the project folder name, and whether any ticket also needs its own
+whether to save the plan note, the project folder name, and whether any ticket also needs its own
 nested note. Do the same when the branch does not reveal a ticket, asking for the ticket number or,
 if there is no ticket, a short descriptive folder name.
 
 If a ticket already has a top-level note and later joins a project, ask before relocating it. Moving
-the folder outside Obsidian does not update wikilinks, so after a move, find and fix references:
+the folder outside Obsidian does not update wikilinks, so after a move, find and fix references from
+the vault root, which catches links from notes outside the plan tree:
 
 ```bash
-grep -rl "\[\[<TICKET>" "$PLAN_NOTES"
+grep -rl "\[\[<TICKET>" "$OBSIDIAN_PLAN_VAULT"
 ```
 
 ## Frontmatter
