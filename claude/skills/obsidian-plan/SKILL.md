@@ -1,6 +1,6 @@
 ---
 name: obsidian-plan
-description: Conventions for the plan note at $OBSIDIAN_PLAN_VAULT/$OBSIDIAN_PLAN_DIR/<TICKET>/Plan.md or .../<Project>/Plan.md - path and ticket resolution, frontmatter, what counts as a step, and the altitude to write at. Invoke when creating or updating a plan note, when a plan is first approved (e.g. on exiting plan mode), or when a plan materially changes. Plan notes are off unless OBSIDIAN_PLAN_VAULT names an existing directory.
+description: Conventions for the plan note at $OBSIDIAN_PLAN_VAULT/$OBSIDIAN_PLAN_DIR/<TICKET>/Plan.md or .../<Project>/Plan.md - path and ticket resolution, frontmatter, what counts as a step, and the altitude to write at. Invoke before looking for, creating, or updating a plan note (including any check for an existing one at session start), when a plan is first approved (e.g. on exiting plan mode), or when a plan materially changes. Plan notes are off unless OBSIDIAN_PLAN_VAULT names an existing directory.
 ---
 
 # Plan note
@@ -80,9 +80,26 @@ A single-ticket or nested ticket note uses `ticket: ABC-123`; a project plan use
 is materially revised.
 
 The project tag is decoupled from the ticket number (e.g. `#projects/some-migration`) and is what
-binds a project plan to its ticket notes, so they share it. Check the project's memory for a
-recorded tag first; only ask if none is recorded, and when told a tag, record it in that project's
-memory so you don't ask again.
+binds a project plan to its ticket notes, so they share it. The notes are its record, not memory.
+Read it from the frontmatter of the project plan or of any note already carrying it; a project
+may be tracked in a top-level ticket note rather than a project folder, so search the whole tree:
+
+```bash
+grep -rn --include=Plan.md '^tags:' "$OBSIDIAN_PLAN_VAULT/${OBSIDIAN_PLAN_DIR:-Projects}"
+```
+
+Ask only when no note carries the project's tag yet. The note you then write records it, so do not
+also store tags or note paths in memory, where they go stale as notes move.
+
+## Formatting
+
+Do not hard-wrap prose. Write one physical line per paragraph, list item, and callout line; Obsidian
+soft-wraps at the reader's configured width, and hard wraps render ragged. Tables, fenced code, and
+frontmatter keep their own form.
+
+When reflowing an existing note, a wrapped continuation that begins with `- ` becomes a new list
+item once joined, silently splitting one bullet into two. Verify a reflow by comparing the word
+stream before and after, not by eye.
 
 ## What counts as a step
 

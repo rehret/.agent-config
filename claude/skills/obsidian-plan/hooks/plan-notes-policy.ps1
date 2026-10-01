@@ -70,5 +70,6 @@ if (Test-Path -LiteralPath $notes -PathType Container) {
 $sep = [IO.Path]::DirectorySeparatorChar
 $ticketPath  = "$notes$sep<TICKET>${sep}Plan.md"
 $projectPath = "$notes$sep<Project>${sep}Plan.md"
+$nestedPath  = "$notes$sep<Project>$sep<TICKET>${sep}Plan.md"
 
-Write-Policy -Context "Plan notes are ON for this machine. Vault root: $root. Plan notes live under $notes ($ticketPath, or $projectPath when work spans several tickets). $state Follow the obsidian-plan skill for the conventions."
+Write-Policy -Context "Plan notes are ON for this machine. Vault root: $root. Plan notes live under ${notes}: $ticketPath, $projectPath, or nested $nestedPath. $state Invoke the obsidian-plan skill before any plan-note lookup or write; a ticket may already live under a project folder."
