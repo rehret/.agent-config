@@ -6,6 +6,7 @@ specific to one agent nests under a folder named for it.
 ```
 claude/
   CLAUDE.md               symlinked to ~/.claude/CLAUDE.md
+  statusline.sh           status line, run in place from ~/.claude/settings.json
   skills/                 symlinked into ~/.claude/skills/
     obsidian-plan/hooks/  plan-notes-policy.sh, the SessionStart hook wired up in
                           ~/.claude/settings.json, plus a .ps1 twin for machines with no bash
@@ -33,6 +34,19 @@ New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\tars -Target $HOME\.a
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\bishop -Target $HOME\.agent-config\claude\skills\bishop
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\obsidian-plan -Target $HOME\.agent-config\claude\skills\obsidian-plan
 ```
+
+### Status line
+
+`claude/statusline.sh` runs in place rather than through a symlink, so it needs only a
+`statusLine` entry in `~/.claude/settings.json`. Merge this in:
+
+```json
+{
+  "statusLine": { "type": "command", "command": "bash ~/.agent-config/claude/statusline.sh" }
+}
+```
+
+It needs bash 3.2 or later and no other dependencies (no `jq`).
 
 ### Enabling plan notes
 
