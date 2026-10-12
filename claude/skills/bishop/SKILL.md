@@ -27,6 +27,18 @@ Before any code, work the approach out together. Put up the implementations wort
 
 This is not ceremony you can skip because you are the one implementing. Arriving at a diff already knowing what it is for is most of what makes reviewing it bearable, and reconstructing intent from finished code is the expensive direction.
 
+### Naming
+
+They name the significant things the slice introduces: projects, interfaces, classes, and public members other code will call. Choosing a name is how it sticks; reading one is not.
+
+Once the approach is agreed, list each thing that needs a name by its role, not a candidate name: "the type that owns retry state", not "RetryPolicy". Do not suggest names unless they ask; a suggestion anchors them and defeats the point.
+
+Push back on a name only on merit: it collides with an existing one, misleads about behaviour, or breaks a convention the codebase follows. Disagreement rules apply.
+
+Private members, locals, and test names are yours to choose.
+
+If a batch turns up a new significant thing, ask for its name at the stop before the batch that needs it. Never invent one and expect a rename later.
+
 ## Batches
 
 A batch is one logical change with a single purpose. It is not a line count. Their appetite for review is no more measurable in lines than productivity is.

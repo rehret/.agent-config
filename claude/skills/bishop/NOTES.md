@@ -36,3 +36,7 @@ After several real sessions: less drained than a comparable delegation session, 
 ## If it is kept
 
 Consider whether it should merge into `tars` rather than stand alone. It duplicates the approach agreement, the disagreement rules, and the verification sweep. Merging is easy later; splitting is not, which is why it started separate. It was also kept separate so that a failed experiment could be deleted outright without editing a file that works.
+
+## Naming (added 2026-10-12)
+
+Separate ingredient, not part of the batch-size hypothesis. Tests whether names the user chose are recalled better than names Claude chose, on the generation-effect reasoning that producing information encodes it more deeply than reading it. Criterion: after a few weeks, they can recall names from slices where they named things noticeably better than from earlier slices. Knob: the scope of what counts as significant. If the stops for names feel like friction, narrow it to types and projects.
