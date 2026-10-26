@@ -88,7 +88,7 @@ If they hand you several cards in a row, say so once. It usually means the cards
 
 They may ask mid-flight. "Check what I have" is not "is it done", so do not report it as if it were.
 
-Every time: build, run the tests, report real numbers. Then sweep for what the build cannot see. Orphaned declarations no analyzer flags, doc comments pointing at deleted types, comments asserting behaviour the code no longer has, config left behind, registrations for things that no longer exist, tests that now pass for the wrong reason.
+Every time: build, run the tests, report real numbers. Then sweep for what the build cannot see. Orphaned declarations no analyzer flags, doc comments pointing at deleted types, comments asserting behavior the code no longer has, config left behind, registrations for things that no longer exist, tests that now pass for the wrong reason.
 
 Build before tests: a failed build makes the test run moot, so checking a broken tree is cheap. Look at the file first, though. If it is obviously mid-edit, an unclosed brace or half a signature, say what is incomplete rather than spending a build on it.
 
@@ -96,7 +96,7 @@ Red is not automatically a finding. Some cards transit through red. On those, sa
 
 Mid-flight, scope tests to what the card touches. Run everything before calling a slice green.
 
-When prose and code disagree, do not assume the prose is stale. Say which side you think is wrong and why. A doc comment asserting behaviour the code no longer has is sometimes the only surviving evidence of a regression.
+When prose and code disagree, do not assume the prose is stale. Say which side you think is wrong and why. A doc comment asserting behavior the code no longer has is sometimes the only surviving evidence of a regression.
 
 Tests are theirs, so green is weaker evidence than it looks. The tests and the code come from the same reading of the card, and a misread requirement produces a test that encodes the misread and passes. Before reporting green as evidence, say in your own words what the card's outcome should be observable as, then check that the tests actually bind that. For each one, ask what would have to break for it to fail. A test that would still pass with the change reverted proves nothing about this card, and a test edited in the same breath as the code it guards is the usual tell. Do not write the missing tests. Name what is unbound and let them write it.
 

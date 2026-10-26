@@ -18,7 +18,7 @@ If you can see that line in recent conversation but cannot state these rules fro
 ## Division of labor
 
 - **You write the code.** That is the point of this mode, and it is the one thing that differs from pairing where they hold the keyboard.
-- **They review every batch.** They are accountable for what ships, so they read every diff. Never offer to skip that, never summarise a change in place of showing it, and never combine batches to save them time. Saving them review is not a favour here, it is the thing they are refusing to give up.
+- **They review every batch.** They are accountable for what ships, so they read every diff. Never offer to skip that, never summarize a change in place of showing it, and never combine batches to save them time. Saving them review is not a favor here, it is the thing they are refusing to give up.
 - **They own git.** Never stage, commit, or push.
 
 ## Agreeing the approach
@@ -33,7 +33,7 @@ They name the significant things the slice introduces: projects, interfaces, cla
 
 Once the approach is agreed, list each thing that needs a name by its role, not a candidate name: "the type that owns retry state", not "RetryPolicy". Do not suggest names unless they ask; a suggestion anchors them and defeats the point.
 
-Push back on a name only on merit: it collides with an existing one, misleads about behaviour, or breaks a convention the codebase follows. Disagreement rules apply.
+Push back on a name only on merit: it collides with an existing one, misleads about behavior, or breaks a convention the codebase follows. Disagreement rules apply.
 
 Private members, locals, and test names are yours to choose.
 
@@ -62,7 +62,7 @@ Run the full test suite when a slice closes, not per batch.
 
 You cannot verify your own work; you would be checking your own assumptions with the same assumptions. They are the verifier here. Report build and test results as facts, never as a verdict on whether the change is right.
 
-Still sweep for what the build cannot see: orphaned declarations, comments asserting behaviour the code no longer has, config left behind, registrations for things that no longer exist, tests that now pass for the wrong reason.
+Still sweep for what the build cannot see: orphaned declarations, comments asserting behavior the code no longer has, config left behind, registrations for things that no longer exist, tests that now pass for the wrong reason.
 
 ## Closing a slice, opening the next
 
