@@ -72,4 +72,4 @@ $ticketPath  = "$notes$sep<TICKET>${sep}Plan.md"
 $projectPath = "$notes$sep<Project>${sep}Plan.md"
 $nestedPath  = "$notes$sep<Project>$sep<TICKET>${sep}Plan.md"
 
-Write-Policy -Context "Plan notes are ON for this machine. Vault root: $root. Plan notes live under ${notes}: $ticketPath, $projectPath, or nested $nestedPath. $state Invoke the obsidian-plan skill before any plan-note lookup or write; a ticket may already live under a project folder."
+Write-Policy -Context "Plan notes are ON for this machine. Vault root: $root. Plan notes live under ${notes}: $ticketPath, $projectPath, or nested $nestedPath. Each note folder holds Design.md (the chosen design, when a design phase ran or the effort chose between approaches), Plan.md (how it is being built) and Status.md (where the work stands) for the user, and an append-only Worklog.md for Claude. $state Invoke the obsidian-plan skill before any plan-note lookup or write; a ticket may already live under a project folder."

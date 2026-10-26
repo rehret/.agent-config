@@ -64,4 +64,4 @@ else
   state="It does not exist yet; create it when the first note is written."
 fi
 
-emit "Plan notes are ON for this machine. Vault root: $root. Plan notes live under $notes: $notes/<TICKET>/Plan.md, $notes/<Project>/Plan.md, or nested $notes/<Project>/<TICKET>/Plan.md. $state Invoke the obsidian-plan skill before any plan-note lookup or write; a ticket may already live under a project folder."
+emit "Plan notes are ON for this machine. Vault root: $root. Plan notes live under $notes: $notes/<TICKET>/Plan.md, $notes/<Project>/Plan.md, or nested $notes/<Project>/<TICKET>/Plan.md. Each note folder holds Design.md (the chosen design, when a design phase ran or the effort chose between approaches), Plan.md (how it is being built) and Status.md (where the work stands) for the user, and an append-only Worklog.md for Claude. $state Invoke the obsidian-plan skill before any plan-note lookup or write; a ticket may already live under a project folder."
