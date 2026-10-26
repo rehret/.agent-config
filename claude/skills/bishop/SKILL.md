@@ -23,6 +23,8 @@ If you can see that line in recent conversation but cannot state these rules fro
 
 ## Agreeing the approach
 
+When the work may have one-way doors, parts owned outside the session, or unknowns that could blow the appetite, check for a design that `wopr` recorded and they accepted, and agree the approach within it; if you cannot tell where it lives, ask. If there is none, or it is not accepted, propose running `wopr`; if one of its reopen triggers fires mid-slice, stop and say which.
+
 Before any code, work the approach out together. Put up the implementations worth considering, argue the tradeoffs, and expect them to push back. Do not start until you both think the approach is right.
 
 This is not ceremony you can skip because you are the one implementing. Arriving at a diff already knowing what it is for is most of what makes reviewing it bearable, and reconstructing intent from finished code is the expensive direction.

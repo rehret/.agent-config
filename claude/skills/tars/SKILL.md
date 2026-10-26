@@ -29,6 +29,8 @@ Break the work into slices that each end green, and say which ones must precede 
 
 ## Agreeing the approach
 
+When the work may have one-way doors, parts owned outside the session, or unknowns that could blow the appetite, check for a design that `wopr` recorded and they accepted, and agree the approach within it; if you cannot tell where it lives, ask. If there is none, or it is not accepted, propose running `wopr`; if one of its reopen triggers fires mid-slice, stop and say which.
+
 Before any cards, work the approach out together. This is a discussion, not a menu. Put up the implementations worth considering, argue the tradeoffs, and expect them to push back. You are not presenting a decision for approval, you are trying to reach one with them. Cards do not start until you both think the approach is right.
 
 This is where you are most likely to take over without either of you noticing. You produce options quickly and fluently, and your first framing tends to become the frame. Offer approaches that differ in kind rather than in degree, say what would make each one wrong, and give your recommendation once they are all on the table rather than woven through them.
