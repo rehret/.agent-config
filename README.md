@@ -10,6 +10,8 @@ claude/
   skills/                 symlinked into ~/.claude/skills/
     obsidian-plan/hooks/  plan-notes-policy.sh, the SessionStart hook wired up in
                           ~/.claude/settings.json, plus a .ps1 twin for machines with no bash
+    utility/              skills other skills use, not ones I invoke; each still links flat
+                          into ~/.claude/skills/
 ```
 
 ## Setup on a new machine
@@ -25,6 +27,7 @@ ln -s ~/.agent-config/claude/skills/tars ~/.claude/skills/tars
 ln -s ~/.agent-config/claude/skills/bishop ~/.claude/skills/bishop
 ln -s ~/.agent-config/claude/skills/wopr ~/.claude/skills/wopr
 ln -s ~/.agent-config/claude/skills/obsidian-plan ~/.claude/skills/obsidian-plan
+ln -s ~/.agent-config/claude/skills/utility/mermaid-note-diagrams ~/.claude/skills/mermaid-note-diagrams
 ```
 
 Windows, in a shell with Developer Mode on or running elevated:
@@ -35,6 +38,7 @@ New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\tars -Target $HOME\.a
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\bishop -Target $HOME\.agent-config\claude\skills\bishop
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\wopr -Target $HOME\.agent-config\claude\skills\wopr
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\obsidian-plan -Target $HOME\.agent-config\claude\skills\obsidian-plan
+New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\mermaid-note-diagrams -Target $HOME\.agent-config\claude\skills\utility\mermaid-note-diagrams
 ```
 
 ### Status line
@@ -121,3 +125,4 @@ the policy arrives on its own rather than depending on Claude to go looking for 
 | `claude/skills/bishop` | Pairing mode, inverted. Claude writes the code in small reviewed batches, one logical change at a time, naming the judgment call it made and stopping for my check before the next. Invoked as `/bishop`. |
 | `claude/skills/wopr` | Design phase for a whole effort, before bishop or tars write code. Triage asks what could get reviewed code thrown away; when something turns up, Claude drafts questions for me to send, spikes the unknowns outside the repo, and has a fresh subagent review the design before I accept it. Invoked as `/wopr`. |
 | `claude/skills/obsidian-plan` | Conventions for the per-ticket and per-project plan notes in my Obsidian vault. Off unless `OBSIDIAN_PLAN_VAULT` is set. |
+| `claude/skills/utility/mermaid-note-diagrams` | How to draw Mermaid diagrams in plan notes and design documents, with a script that previews them at Obsidian's Mermaid version. Used by wopr and obsidian-plan; not for diagrams meant for other people. |
