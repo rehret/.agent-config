@@ -23,6 +23,7 @@ macOS and Linux:
 ln -s ~/.agent-config/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -s ~/.agent-config/claude/skills/tars ~/.claude/skills/tars
 ln -s ~/.agent-config/claude/skills/bishop ~/.claude/skills/bishop
+ln -s ~/.agent-config/claude/skills/wopr ~/.claude/skills/wopr
 ln -s ~/.agent-config/claude/skills/obsidian-plan ~/.claude/skills/obsidian-plan
 ```
 
@@ -32,6 +33,7 @@ Windows, in a shell with Developer Mode on or running elevated:
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\CLAUDE.md -Target $HOME\.agent-config\claude\CLAUDE.md
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\tars -Target $HOME\.agent-config\claude\skills\tars
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\bishop -Target $HOME\.agent-config\claude\skills\bishop
+New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\wopr -Target $HOME\.agent-config\claude\skills\wopr
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\obsidian-plan -Target $HOME\.agent-config\claude\skills\obsidian-plan
 ```
 
@@ -117,4 +119,5 @@ the policy arrives on its own rather than depending on Claude to go looking for 
 |---|---|
 | `claude/skills/tars` | Pairing mode. I write the code; Claude scopes it into task cards, verifies each one, argues on merit, and owns the docs. Invoked as `/tars`. |
 | `claude/skills/bishop` | Pairing mode, inverted. Claude writes the code in small reviewed batches, one logical change at a time, naming the judgment call it made and stopping for my check before the next. Invoked as `/bishop`. |
+| `claude/skills/wopr` | Design phase for a whole effort, before bishop or tars write code. Triage asks what could get reviewed code thrown away; when something turns up, Claude drafts questions for me to send, spikes the unknowns outside the repo, and has a fresh subagent review the design before I accept it. Invoked as `/wopr`. |
 | `claude/skills/obsidian-plan` | Conventions for the per-ticket and per-project plan notes in my Obsidian vault. Off unless `OBSIDIAN_PLAN_VAULT` is set. |
