@@ -140,7 +140,8 @@ it.
 - `## Tickets` (project plans only): one row per ticket with its scope, linking down to any nested
   note. No state; that is in `Status.md`.
 - `## Phases`: how the work breaks down, what each phase achieves, the order, and why that order. No
-  state, so a phase finishing does not touch this file.
+  state, so a phase finishing does not touch this file. When the phases are not a straight line, add
+  the dependency diagram described under Diagrams.
 - `## Decisions`: decisions made while building, each with a one-line reason. Without a
   `Design.md`, this holds the approach too. A reversed decision is replaced by its successor; the
   story belongs in the worklog. Rejected alternatives worth remembering go in a collapsed callout.
@@ -243,6 +244,13 @@ frontmatter keep their own form.
 When reflowing an existing note, a wrapped continuation that begins with `- ` becomes a new list
 item once joined, silently splitting one bullet into two. Verify a reflow by comparing the word
 stream before and after, not by eye.
+
+## Diagrams
+
+`Plan.md` gets a diagram when its phases are not a straight line: a flowchart of which phase depends
+on which. Elsewhere in `Plan.md`, add one only when the prose describes a graph. `Status.md` and
+`Worklog.md` get none: state changes on every update, and a copy of the plan's diagram would drift
+from it. Draw diagrams as the `mermaid-note-diagrams` skill describes.
 
 ## Notes from before the split
 

@@ -47,6 +47,10 @@ Omit a section with nothing in it, except Constraints and Reopen if: a design ph
 
 Keep it readable in one sitting. Alternatives get a line or two each, with detail in a collapsed callout; a replaced design is a summary of its core idea and reasons, not its full text. If the text outside collapsed callouts runs much past 1,000 words, detail has crept in that belongs elsewhere.
 
+### Diagrams
+
+When the chosen design has a flow between components, give Design one diagram of how it works. Anywhere else in the document, add one only when the prose describes a graph. Draw it as the `mermaid-note-diagrams` skill describes.
+
 ## Triage
 
 First, in one exchange: what could get reviewed code thrown away? Look for three things.
