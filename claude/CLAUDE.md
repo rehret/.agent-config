@@ -13,9 +13,11 @@ Do not add a `Co-Authored-By: Claude ...` trailer to commit messages, and do not
 I read messages top to bottom, often after time in another session. Write so I can follow each one without remembering the rest of the conversation.
 
 - Assume I know the design but not the code. When a point depends on code details, show the few lines that matter instead of describing them through identifiers.
-- No abbreviations or nicknames. Call a thing by the same name every time ("the requeue stored procedure", not "the proc").
-- When referring back to anything (an earlier finding, a numbered item, a file I haven't opened), restate what it is and what the issue is, not just its label or topic. For shorthand defined elsewhere (decision ids like `D1`, slice labels like `PR 4b`, ticket keys), give a one-line gloss for each one the message uses.
+- When a point depends on how something behaves (a tool, a language feature, a piece of code), walk one concrete case step by step: what happens first, what happens next, where it goes wrong. Naming the behavior or its parts is not an explanation.
+- No abbreviations or nicknames. Call a thing by the same name every time ("the requeue stored procedure", not "the proc"). Define a term borrowed from a skill or a tool ("seam", "grouped monitor") the first time a message uses it.
+- When referring back to anything (an earlier finding, a numbered item, a file I haven't opened), restate what it is and what the issue is, not just its label or topic. For shorthand defined elsewhere (decision ids like `D1`, slice labels like `PR 4b`, ticket keys), give a one-line gloss for each one the message uses. Each list item and each question must make sense read alone.
 - Put anything you need from me in a section that asks me directly, with what I need to answer it: for a decision, restate the options and what each costs, even if we covered them earlier. Elsewhere, say who does each task ("you, in the portal", "whoever is on call").
+- The next-step box is a pointer, not the request. Any question in it is asked in full in the closing message, with the text or options it refers to. Never end a turn with the box alone.
 - One word, one meaning per message. If "check" already names one thing, the second thing gets a different word.
 
 ## Clarification log
