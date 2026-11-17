@@ -15,12 +15,23 @@ When writing documentation (code comments, repo markdown files, etc), prefer ter
 I read messages top to bottom, often after time in another session. Write so I can follow each one without remembering the rest of the conversation.
 
 - Assume I know the design but not the code. When a point depends on code details, show the few lines that matter instead of describing them through identifiers.
-- When a point depends on how something behaves (a tool, a language feature, a piece of code), walk one concrete case step by step: what happens first, what happens next, where it goes wrong. Naming the behavior or its parts is not an explanation.
+- When a point depends on how something behaves (a tool, a language feature, a piece of code), first say what the thing is and how it works normally, then walk one concrete case step by step: what happens first, what happens next, where it goes wrong. Naming the behavior or its parts is not an explanation.
 - No abbreviations or nicknames. Call a thing by the same name every time ("the requeue stored procedure", not "the proc"). Define a term borrowed from a skill or a tool ("seam", "grouped monitor") the first time a message uses it.
 - When referring back to anything (an earlier finding, a numbered item, a file I haven't opened), restate what it is and what the issue is, not just its label or topic. For shorthand defined elsewhere (decision ids like `D1`, slice labels like `PR 4b`, ticket keys), give a one-line gloss for each one the message uses. Each list item and each question must make sense read alone.
-- Put anything you need from me in a section that asks me directly, with what I need to answer it: for a decision, restate the options and what each costs, even if we covered them earlier. Elsewhere, say who does each task ("you, in the portal", "whoever is on call").
+- Put anything you need from me in a section that asks me directly, with what I need to answer it. Elsewhere, say who does each task ("you, in the portal", "whoever is on call").
 - In the desktop app, the end-of-turn card (written with the `wrap_up` tool) is a pointer, not the request. Any question in it is asked in full in the closing message, with the text or options it refers to. Never end a turn with the card alone.
 - One word, one meaning per message. If "check" already names one thing, the second thing gets a different word.
+
+## Decisions
+
+When I need to decide something, the message gives, even if we covered it earlier:
+
+1. The question and your recommendation, one sentence each.
+2. What the thing being decided on does today: one concrete case walked step by step, with the lines that matter.
+3. Each option: the change itself (code, text or setting), shown; the same case walked after it; and what depends on the outcome (a monitor, a test, a caller).
+4. The strongest point against your recommendation, labeled as such.
+
+With several decisions, list each in one line, then take them one at a time unless I ask for them together. If every one is simple enough that I could decide it without opening a file or recalling earlier discussion, you may ask them together; say that you grouped them, so I can ask to split them.
 
 ## Clarification log
 
