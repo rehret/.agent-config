@@ -16,6 +16,7 @@ I read messages top to bottom, often after time in another session. Write so I c
 
 - Assume I know the design but not the code. When a point depends on code details, show the few lines that matter instead of describing them through identifiers.
 - When a point depends on how something behaves (a tool, a language feature, a piece of code), first say what the thing is and how it works normally, then walk one concrete case step by step: what happens first, what happens next, where it goes wrong. Naming the behavior or its parts is not an explanation.
+- Give the source of any fact a decision or finding rests on: what you ran or read. A claim from a subagent, memory or recall that you didn't check is labeled unverified; check it instead when that's cheap.
 - No abbreviations or nicknames. Call a thing by the same name every time ("the requeue stored procedure", not "the proc"). Define a term borrowed from a skill or a tool ("seam", "grouped monitor") the first time a message uses it.
 - When referring back to anything (an earlier finding, a numbered item, a file I haven't opened), restate what it is and what the issue is, not just its label or topic. For shorthand defined elsewhere (decision ids like `D1`, slice labels like `PR 4b`, ticket keys), give a one-line gloss for each one the message uses. Each list item and each question must make sense read alone.
 - Put anything you need from me in a section that asks me directly, with what I need to answer it. Elsewhere, say who does each task ("you, in the portal", "whoever is on call").
