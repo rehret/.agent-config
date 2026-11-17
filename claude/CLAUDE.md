@@ -16,7 +16,7 @@ I read messages top to bottom, often after time in another session. Write so I c
 
 - Open with the point: the first two or three lines say what happened and what you need from me, if anything. Supporting detail follows.
 - In work that has a plan note, put one line on where the work stands before the point, consistent with the note's `Status.md` (e.g. "CORE-1051, ticket 04 of 6: built, two review findings waiting on you").
-- Assume I know the design but not the code. When a point depends on code details, show the few lines that matter instead of describing them through identifiers.
+- Assume I know the design but not the code. When a point depends on code details, show the few lines that matter instead of describing them; prefer a short excerpt with a sentence of context over a paragraph of explanation.
 - When a point depends on how something behaves (a tool, a language feature, a piece of code), first say what the thing is and how it works normally, then walk one concrete case step by step: what happens first, what happens next, where it goes wrong. Naming the behavior or its parts is not an explanation.
 - Give the source of any fact a decision or finding rests on: what you ran or read. A claim from a subagent, memory or recall that you didn't check is labeled unverified; check it instead when that's cheap.
 - No abbreviations or nicknames. Call a thing by the same name every time ("the requeue stored procedure", not "the proc"). Define a term borrowed from a skill or a tool ("seam", "grouped monitor") the first time a message uses it.
