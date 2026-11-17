@@ -6,6 +6,7 @@ specific to one agent nests under a folder named for it.
 ```
 claude/
   CLAUDE.md               symlinked to ~/.claude/CLAUDE.md
+  rules/                  symlinked to ~/.claude/rules
   statusline.sh           status line, run in place from ~/.claude/settings.json
   skills/                 symlinked into ~/.claude/skills/
     obsidian-plan/hooks/  plan-notes-policy.sh, the SessionStart hook wired up in
@@ -23,6 +24,7 @@ macOS and Linux:
 
 ```sh
 ln -s ~/.agent-config/claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -s ~/.agent-config/claude/rules ~/.claude/rules
 ln -s ~/.agent-config/claude/skills/tars ~/.claude/skills/tars
 ln -s ~/.agent-config/claude/skills/bishop ~/.claude/skills/bishop
 ln -s ~/.agent-config/claude/skills/wopr ~/.claude/skills/wopr
@@ -34,6 +36,7 @@ Windows, in a shell with Developer Mode on or running elevated:
 
 ```powershell
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\CLAUDE.md -Target $HOME\.agent-config\claude\CLAUDE.md
+New-Item -ItemType SymbolicLink -Path $HOME\.claude\rules -Target $HOME\.agent-config\claude\rules
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\tars -Target $HOME\.agent-config\claude\skills\tars
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\bishop -Target $HOME\.agent-config\claude\skills\bishop
 New-Item -ItemType SymbolicLink -Path $HOME\.claude\skills\wopr -Target $HOME\.agent-config\claude\skills\wopr
