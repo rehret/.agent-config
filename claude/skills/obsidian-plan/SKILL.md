@@ -11,7 +11,7 @@ Each effort gets a folder of notes:
   and why it won. It always describes the design being executed; when that changes, it says what
   changed and why. Only for efforts that went through a design phase or chose between approaches.
 - **`Plan.md` is for the user: the plan for executing it.** The phases, their order, and the
-  decisions made while building. It changes only when the plan does.
+  plan-level decisions made while building. It changes only when the plan does.
 - **`Status.md` is for the user: where the work stands.** The current phase, each phase's state,
   what is next, and what will bite whoever does it. Rewritten in place as the work moves.
 - **`Worklog.md` is for Claude.** An append-only, dated record of the work: batches, commits,
@@ -142,9 +142,17 @@ it.
 - `## Phases`: how the work breaks down, what each phase achieves, the order, and why that order. No
   state, so a phase finishing does not touch this file. When the phases are not a straight line, add
   the dependency diagram described under Diagrams.
-- `## Decisions`: decisions made while building, each with a one-line reason. Without a
-  `Design.md`, this holds the approach too. A reversed decision is replaced by its successor; the
-  story belongs in the worklog. Rejected alternatives worth remembering go in a collapsed callout.
+- `## Decisions`: plan-level decisions, each with a one-line reason. A decision is plan-level if a
+  reader needs it to judge from the plan alone whether the plan is right (scope, sequencing,
+  accepted risks, behavior that operators, other teams, or consumers see), or if someone might later
+  propose the option it rejected. Behavior a person reads (a sentence printed for an operator, a
+  confirmation prompt) is plan-level, but behavior a program reads (an API, a JSON shape, an exit
+  code a script checks) is a contract others depend on, which goes in `Design.md`. Without a
+  `Design.md`, this holds the approach too. Any other choice is build-level (a class name, a
+  registration key, which exception is caught, how tests are wired): its reason goes in a comment
+  beside the code, and how it was reached goes in the worklog. A reversed decision is replaced by
+  its successor; history, such as the reversal, which review found a decision, or what was tried
+  first, belongs in the worklog. Rejected alternatives worth remembering go in a collapsed callout.
 - `## Open questions`: what is undecided about the build, with who can answer it.
 
 `Plan.md` holds nothing about execution state: no phase states, branches, commits, or next actions.
@@ -236,7 +244,8 @@ Append only. Never edit a past entry; correct one with a new entry that says wha
 
 A decision belongs in `Design.md` if reversing it would change what you would defend to an architect:
 the approach, where it runs, what it owns, a contract others depend on. A decision about how to
-build within that approach belongs in `Plan.md`.
+build within that approach belongs in `Plan.md` only if it is plan-level, as its Decisions section
+defines.
 
 Write in the same turn as the event. When a turn touches more than one file, write the worklog entry
 first, then the others in reading order.
@@ -245,7 +254,8 @@ first, then the others in reading order.
 |---|---|---|---|---|
 | Task, card, or batch done; commit; test run | nothing | nothing | Next steps, if they moved | entry |
 | Phase starts or finishes | nothing | nothing | Now and Phases | entry |
-| Build decision made or reversed | nothing | Decisions | anything it changes | entry, with the reasoning |
+| Plan-level decision made or reversed | nothing | Decisions | anything it changes | entry, with the reasoning |
+| Build-level decision made or reversed | nothing | nothing; its reason goes in a comment beside the code | anything it changes | entry, with how it was reached |
 | Design changed mid-build | the design, with what changed and why | Phases and Decisions it affects | anything it changes | entry, with the reasoning |
 | Outside question answered | the design, if it records the question | nothing | nothing | entry |
 | Phases added or reordered | nothing | Phases | Phases and Next steps | entry |
