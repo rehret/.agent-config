@@ -191,7 +191,7 @@ something merged weeks ago is still waiting.
 
 ### The phases table
 
-The `progress` mod in Herdr parses this table to draw the effort's progress, so keep its form exact:
+The `effort-board` mod in Herdr parses this table to draw the effort's progress, so keep its form exact:
 
 ```markdown
 | Phase | State | Tickets | Links | Waiting on |
