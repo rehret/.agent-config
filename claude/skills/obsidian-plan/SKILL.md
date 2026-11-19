@@ -198,8 +198,10 @@ The `progress` mod in Herdr parses this table to draw the effort's progress, so 
 One row per phase in the plan, named and numbered as the plan names it. A project note's rows are the
 project plan's phases, which may be whole tickets.
 
-- **State:** one of `todo`, `active`, `review`, `blocked`, `done`. `blocked` is for a phase that
-  cannot move until something outside it happens, not one that merely waits on an undated event.
+- **State:** one of `todo`, `active`, `review`, `blocked`, `done`, `dropped`. `blocked` is for a
+  phase that cannot move until something outside it happens, not one that merely waits on an undated
+  event. `dropped` is for a phase no longer being done: it keeps its row and its place in the plan,
+  and the plan's Decisions say why.
 - **Tickets:** in a ticket note, the phase's issue numbers from the repo's
   `.scratch/<effort>/issues/` (written by Matt Pocock's skills), each struck through once its work
   is committed. In a project note, the phase's tickets: one with its own `Status.md` is listed bare,
@@ -246,7 +248,8 @@ first, then the others in reading order.
 | Build decision made or reversed | nothing | Decisions | anything it changes | entry, with the reasoning |
 | Design changed mid-build | the design, with what changed and why | Phases and Decisions it affects | anything it changes | entry, with the reasoning |
 | Outside question answered | the design, if it records the question | nothing | nothing | entry |
-| Phases added, dropped, or reordered | nothing | Phases | Phases and Next steps | entry |
+| Phases added or reordered | nothing | Phases | Phases and Next steps | entry |
+| Phase dropped | nothing | Decisions, with why | its row to `dropped`; Next steps | entry |
 | Trap found | nothing | nothing | Traps, if it outlives the task | entry |
 
 A change to the phases or their order lands in `Plan.md` first; `Status.md` refers to phases only by
