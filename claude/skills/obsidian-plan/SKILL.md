@@ -171,8 +171,7 @@ Now.
 
 - `## Now`: at most three lines: the phase in progress, what blocks it, what comes next. Replace it
   on every update; never append to it. Appending is how a status line turns into a log.
-- `## Phases`: each phase from the plan, by the plan's name for it, with its state and its branches
-  and PRs. A project lists its tickets' states here.
+- `## Phases`: one table, the only record of each phase's state. See The phases table below.
 - `## Next steps`: the concrete actions ahead.
 - `## Traps`: what will bite whoever works on this next, when it outlives the task that found it.
 - `## Working agreements`: how this effort is being worked where it departs from the defaults, such
@@ -181,6 +180,39 @@ Now.
 Everything here describes the present, so check claims against the repo when rewriting rather than
 copying them forward. A state carried over from an older version is how a note ends up saying that
 something merged weeks ago is still waiting.
+
+### The phases table
+
+The `progress` mod in Herdr parses this table to draw the effort's progress, so keep its form exact:
+
+```markdown
+| Phase | State | Tickets | Links | Waiting on |
+|---|---|---|---|---|
+| 1. Verdict refactor | done | ~~01~~ | [#101](https://github.com/org/repo/pull/101) | |
+| 2. Reingest | review | ~~02~~ ~~03~~ | [#105](https://github.com/org/repo/pull/105) | merge |
+| 3. Verify reingest in QA | blocked | 04 | | #105 deployed to QA |
+| 4. CLI | active | ~~05~~ 06 | `ABC-123-cli` | |
+| 5. Verify the CLI in QA | todo | 07 | | |
+```
+
+One row per phase in the plan, named and numbered as the plan names it. A project note's rows are the
+project plan's phases, which may be whole tickets.
+
+- **State:** one of `todo`, `active`, `review`, `blocked`, `done`. `blocked` is for a phase that
+  cannot move until something outside it happens, not one that merely waits on an undated event.
+- **Tickets:** in a ticket note, the phase's issue numbers from the repo's
+  `.scratch/<effort>/issues/` (written by Matt Pocock's skills), each struck through once its work
+  is committed. In a project note, the phase's tickets: one with its own `Status.md` is listed bare,
+  and its progress comes from that note's table; any other is struck through when finished.
+  Space-separated. Always present, empty when there are none.
+- **Links:** the phase's PRs, open or merged, and its live branches in backticks. A done phase drops
+  its branches.
+- **Waiting on:** what the next move waits on, in a few words; empty when nothing. Starts with the
+  user's first name and a colon when it waits on the user.
+
+The mod finds columns by header, so keep the names; order may change. Escape a pipe inside a cell as
+`\|`, wikilink aliases included. Put nothing in a cell beyond what its column allows: the mod shows
+text it cannot read as an error. Commit ids, dates, and each phase's story go in the worklog; traps go in `## Traps`.
 
 ## Worklog.md
 
@@ -264,3 +296,14 @@ next touch it; do not sweep the vault unasked.
    chose between approaches, checking each state claim against the repo before carrying it. The
    design records the problem, the options, the design chosen and why, and any mid-build change with
    its reasons. Carry over any acceptance the old note records.
+
+## Notes from before the phases table
+
+A `Status.md` whose `## Phases` is prose predates the table. Convert it when you next update that
+`Status.md`; do not sweep the vault unasked.
+
+1. Append a worklog entry, dated today and titled `Phases section converted to a table`, holding the
+   old section verbatim. Verify with `diff` against the extracted section, and confirm the worklog's
+   earlier bytes are unchanged.
+2. Replace the section with the table, checking each state against the repo rather than copying it.
+   Ask the user about any state the repo cannot settle.
