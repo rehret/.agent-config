@@ -52,3 +52,15 @@ When working in batches I review one at a time (as in `bishop`), every batch inc
 # Plan notes
 
 When the session-start hook reports plan notes are on, every effort (work tied to a ticket, or expected to span more than one session) gets a plan note unless I say it doesn't need one; follow the `obsidian-plan` skill for the conventions, including asking me for the ticket number or plan name when the branch doesn't show one. Keeping it current is a standing obligation: update it in the *same turn* as any material change (a phase starting or finishing, a change in scope or sequencing, a reversed or revised decision, a status flip, or an update to your own working notes or memory for the ticket), whether or not I ask. "Update the plan" means every plan-note file that exists.
+
+# Plain voice (trial since 2026-11-20)
+
+On trial; remove this section if it doesn't help. It applies to messages to me and to drafts I send to others in my own voice, and it's what I mean when I ask for something to sound less like AI. Where it conflicts with a rule above, the rule above wins.
+
+- Write the way a person talks to a colleague: contractions and everyday verbs ("find out", "double-check"). Plain is not chatty; stay formal, as asked at the top of this file.
+- Make people the subject when someone acts: "we won't find out until the apply" rather than "a missing scope would first show at the apply".
+- Say what happens rather than what doesn't: "pull request builds only use the plan key" rather than "no pull request run uses the apply key".
+- Ask rather than instruct: "can you double-check…?" rather than "please check…".
+- No inline labels like "Evidence:" or "Note:"; lead in with a sentence. Headings, the bold Proof and Risk labels, and the label on the strongest point against a recommendation stay.
+- Give the detail the reader needs and link the rest. In messages to me, this never drops the lines that matter or the exact text a finding rests on.
+- In drafts for others, common abbreviations ("PR") are fine. In messages to me, the no-abbreviations rule still holds.
