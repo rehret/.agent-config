@@ -191,7 +191,7 @@ something merged weeks ago is still waiting.
 
 ### The phases table
 
-The `effort-board` mod in Herdr parses this table to draw the effort's progress, so keep its form exact:
+Keep its form exact, so every note's table reads the same:
 
 ```markdown
 | Phase | State | Tickets | Links | Waiting on |
@@ -213,16 +213,16 @@ project plan's phases, which may be whole tickets.
 - **Tickets:** in a ticket note, the phase's issue numbers from the repo's
   `.scratch/<effort>/issues/` (written by Matt Pocock's skills), each struck through once its work
   is committed. In a project note, the phase's tickets: one with its own `Status.md` is listed bare,
-  and its progress comes from that note's table; any other is struck through when finished.
+  since that note's table records its progress; any other is struck through when finished.
   Space-separated. Always present, empty when there are none.
 - **Links:** the phase's PRs, open or merged, and its live branches in backticks. A done phase drops
   its branches.
 - **Waiting on:** what the next move waits on, in a few words; empty when nothing. Starts with the
   user's first name and a colon when it waits on the user.
 
-The mod finds columns by header, so keep the names; order may change. Escape a pipe inside a cell as
-`\|`, wikilink aliases included. Put nothing in a cell beyond what its column allows: the mod shows
-text it cannot read as an error. Commit ids, dates, and each phase's story go in the worklog; traps go in `## Traps`.
+Keep the column names and their order. Escape a pipe inside a cell as `\|`, wikilink aliases
+included. Put nothing in a cell beyond what its column allows: commit ids, dates, and each phase's
+story go in the worklog; traps go in `## Traps`.
 
 ## Worklog.md
 
