@@ -254,6 +254,7 @@ first, then the others in reading order.
 |---|---|---|---|---|
 | Task, card, or batch done; commit; test run | nothing | nothing | Next steps, if they moved | entry |
 | Phase starts or finishes | nothing | nothing | Now and Phases | entry |
+| Ticket with its own note finishes | nothing | nothing | the project's Phases: once every ticket on its phase is finished, the phase to `done`, or its Waiting on to what the notes show is left | entry, in the project's too |
 | Plan-level decision made or reversed | nothing | Decisions | anything it changes | entry, with the reasoning |
 | Build-level decision made or reversed | nothing | nothing; its reason goes in a comment beside the code | anything it changes | entry, with how it was reached |
 | Design changed mid-build | the design, with what changed and why | Phases and Decisions it affects | anything it changes | entry, with the reasoning |
